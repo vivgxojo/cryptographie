@@ -102,3 +102,43 @@ if __name__ == '__main__':
 
     # TODO : Tout décrypter le contenu des 3 listes : mots_cesar, mots_hash et mots_cesar_hash
     # Indice : les mots à trouver devrait exister dans la liste mots_aleatoires
+    print()
+    # Déchiffrer les mots césar
+    for mot_chiffre in mots_cesar:
+        for i in range(26):
+            mot_dechiffre = chiffrement_cesar(mot_chiffre, i)
+            if mot_dechiffre in mots_aleatoires:
+                print(mot_dechiffre)
+                break # termine le for in in range(26), passe au mot suivant
+    print()
+    # Retrouver les mots hachés
+    for hash in mots_hash:
+        for mot, liste_hash in dict1.items():
+            if hash in liste_hash:
+                print(mot)
+                break
+    print()
+    # Retrouver les mots hachés et crytpés
+    # Pseudocode
+    # Trouver tous les mots chiffrés possibles
+    mots_chiffres = []
+    for mot in mots_aleatoires:
+        for i in range(26):
+            mot_chiffre = chiffrement_cesar(mot, i)
+            mots_chiffres.append(mot_chiffre)
+    # hasher tous les mots chiffrés
+    dict3 = hasher_mots(mots_chiffres)
+    # pour chaque élément dans la liste de mots_cesar_hahs
+        # vérifier si l'élément existe dans le dictionnaire
+            # le mot est trouvé mais il faut le déchiffrer
+    for code in mots_cesar_hash:
+        for mot_chiffre, liste_hash in dict3.items():
+            if code in liste_hash:
+                for i in range(26):
+                    mot_dechiffre = chiffrement_cesar(mot_chiffre, i)
+                    if mot_dechiffre in mots_aleatoires:
+                        print(mot_dechiffre)
+                        break  # termine le for in in range(26), passe au mot suivant
+
+
+

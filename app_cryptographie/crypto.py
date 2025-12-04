@@ -72,7 +72,7 @@ def sauvegarder(dict_mots_passes: dict) -> None:
     :param dict_mots_passes: dictionnaire contenant les mots de passes et leur listes de hash
     """
     with open("mots_passes.json", "w", encoding="utf-8") as f:
-        json.dump(dict_mots_passes, f, ensure_ascii=False, indent=4)
+        json.dump(dict_mots_passes, f, ensure_ascii=False)
 
 if __name__ == '__main__':
 

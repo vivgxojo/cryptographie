@@ -1,4 +1,11 @@
 import hashlib
+
+def sauvegarder_mots_passes(dict_mots_passes):
+    with open("mots_passes.txt", "w") as f:
+        for mot, value in dict_mots_passes.items():
+            f.write(mot + ", " + ", ".join(value) + "\n")
+
+
 def hasher_mots(mots: list[str]) -> dict:
     """
     Fonction qui reçoit une liste de mots et qui génère les hash md5, sha256 et sha512 de chaque mot à
@@ -94,6 +101,7 @@ if __name__ == '__main__':
 
     # tester que hasher 2 fois la même chose donne le même résultat
     dict1 = hasher_mots(mots_aleatoires)
+    sauvegarder_mots_passes(dict1)
     dict2 = hasher_mots(mots_aleatoires)
     if dict1 == dict2:
         print("C'est pareil")

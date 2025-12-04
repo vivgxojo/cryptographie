@@ -50,7 +50,7 @@ def chiffrement_cesar(chaine: str, nb_cesar: int) -> str:
     :param nb_cesar: Le nombre de rotations à faire pour le chiffrement.
     :return: La chaine chiffrée résultante
     """
-    caracteres_remplacement = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
+    caracteres_remplacement = "abcdefghijklmnopqrstuvwxyz"
     chaine_chiffree = ""
 
     # TODO: à l'aide des caractères de remplacement, du nombre de César et de la chaine originale, faire le chiffrement
@@ -62,6 +62,7 @@ def chiffrement_cesar(chaine: str, nb_cesar: int) -> str:
         # position = trouver caractère dans caracteres_remplacement
         position = caracteres_remplacement.index(chaine[i])
         position += nb_cesar
+        position = position % len(caracteres_remplacement)
         chaine_chiffree += caracteres_remplacement[position]
 
     return chaine_chiffree

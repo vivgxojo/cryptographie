@@ -21,5 +21,6 @@ def test_hash_1():
     resultat_attendu =  { "arbre": ["8e6c32949d486c9770b16130011e2ad9", "5b81c7c3bb698fbfea7fc79fe3f11cb5fde0861b94fffabd36e4366afc76f34b", "bf7cd7f72a1842ae28919aeb973d0b87481e3ce38882ea336f91440bca4d0307c78cadb0d11e782ec1525edd7254c8b12a8658b133da0311a4485018afa26b23"], "bateau": ["b40c600c9e8b436ffb554756920c4b77", "25c9ec1ed3674b8810b459eebe2e4130992373b8db72206e4c5883526004eb6c", "1c2480cb3edacd18fee09240be187d84b79bb58ab2fb23f88eabd115096360a917aebf91b4fcfe354b4c92fbf0faa47f3764b8bb73fe5713e2c4c5bdd3e8447b"]}
     resultat = hasher_mots(ls_mots)
     assert resultat == resultat_attendu
+
 def test_hash_2():
     assert hasher_mots([]) == {}

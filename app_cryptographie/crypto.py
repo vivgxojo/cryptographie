@@ -1,7 +1,8 @@
 import hashlib
+import json
 
 def sauvegarder_mots_passes(dict_mots_passes):
-    with open("mots_passes.txt", "w") as f:
+    with open("mots_passes.csv", "w") as f:
         for mot, value in dict_mots_passes.items():
             f.write(mot + ", " + ", ".join(value) + "\n")
 
@@ -65,6 +66,13 @@ def chiffrement_cesar(chaine: str, nb_cesar: int) -> str:
 
     return chaine_chiffree
 
+def sauvegarder(dict_mots_passes: dict) -> None:
+    """
+    Fonction pour sauvegarder un dictionnaire de mots de passes avec ses hash
+    :param dict_mots_passes: dictionnaire contenant les mots de passes et leur listes de hash
+    """
+    with open("mots_passes.json", "w", encoding="utf-8") as f:
+        json.dump(dict_mots_passes, f, ensure_ascii=False, indent=4)
 
 if __name__ == '__main__':
 
@@ -103,6 +111,8 @@ if __name__ == '__main__':
     dict1 = hasher_mots(mots_aleatoires)
     sauvegarder_mots_passes(dict1)
     dict2 = hasher_mots(mots_aleatoires)
+    sauvegarder(dict2)
+
     if dict1 == dict2:
         print("C'est pareil")
     else:
